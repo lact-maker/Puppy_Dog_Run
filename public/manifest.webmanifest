@@ -1,0 +1,1 @@
+{"name": "小狗双人跑酷", "short_name": "小狗跑酷", "start_url": "./", "display": "standalone", "orientation": "landscape", "background_color": "#fcf9f2", "theme_color": "#fcf9f2", "icons": [{"src": "./assets/duo-icon.png", "sizes": "1254x1254", "type": "image/png", "purpose": "any"}]}

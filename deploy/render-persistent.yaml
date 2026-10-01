@@ -1,0 +1,18 @@
+# Optional PAID deployment. Not enabled by default.
+services:
+  - type: web
+    name: puppy-duo-run
+    runtime: docker
+    plan: 0.5c-512mb
+    region: singapore
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/health
+    envVars:
+      - key: PORT
+        value: "10000"
+      - key: DATA_FILE
+        value: /app/data/store.json
+    disk:
+      name: puppy-duo-saves
+      mountPath: /app/data
+      sizeGB: 1

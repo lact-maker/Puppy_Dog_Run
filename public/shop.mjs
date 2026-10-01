@@ -1,0 +1,1 @@
+export const CATALOG = Object.freeze([{id:'hat',name:'星星小帽',slot:'hat',price:10},{id:'shoes',name:'软软跑鞋',slot:'shoes',price:25},{id:'shirt',name:'薄荷上衣',slot:'shirt',price:100},{id:'pants',name:'奶油短裤',slot:'pants',price:100}]);

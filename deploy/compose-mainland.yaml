@@ -1,0 +1,24 @@
+# Run from project root: docker compose -f deploy/compose-mainland.yaml up -d --build
+services:
+  game:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      PORT: "8787"
+      DATA_FILE: /app/data/store.json
+    ports:
+      - "127.0.0.1:8787:8787"
+    volumes:
+      - saves:/app/data
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:8787/api/health').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    stop_grace_period: 30s
+volumes:
+  saves:
+    name: puppy-duo-saves

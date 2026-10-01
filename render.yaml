@@ -1,0 +1,14 @@
+# Free test deployment. Local saves are lost on restart/redeploy.
+services:
+  - type: web
+    name: puppy-duo-run
+    runtime: docker
+    plan: free
+    region: singapore
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/health
+    envVars:
+      - key: PORT
+        value: "10000"
+      - key: DATA_FILE
+        value: /app/data/store.json
